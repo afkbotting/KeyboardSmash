@@ -27,9 +27,10 @@
     </video>
 
     <script>
-        setTimeout(function() {
-            document.getElementById("button").click();
-        }, 0);
+        // Apply blur effect on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("blur-box").classList.add("blurred");
+        });
 
         document.getElementById("button").addEventListener("click", function () {
             var bgAudio = document.getElementById("video-background"); 
