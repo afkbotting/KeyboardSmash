@@ -10,7 +10,7 @@
 <body>
     <div id="button"><b class="next glowing-text">Click To Continue</b></div>
 
-    <div id="blur-box" style="display: none;">
+    <div id="blur-box">
         <div id="profile-picture">
             <img src="" alt="Profile Picture" id="profile-pic">
         </div>
@@ -22,7 +22,7 @@
         </a>
     </div>
 
-    <video id="video-background" loop style="display: none;">
+    <video id="video-background" loop>
         <source src="" type="video/mp4" id="video-source">
     </video>
 
@@ -32,9 +32,6 @@
         }, 0);
 
         document.getElementById("button").addEventListener("click", function () {
-            var button = this;
-            button.style.animation = "fadeout 1s forwards";
-
             var bgAudio = document.getElementById("video-background"); 
             document.getElementById("blur-box").style.display = "block";
             document.getElementById("video-background").style.display = "block";
