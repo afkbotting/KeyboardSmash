@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div id="button" style="display: none;"><b class="next glowing-text">Click To Continue</b></div>
+    <div id="button"><b class="next glowing-text">Click To Continue</b></div>
 
     <div id="blur-box" style="display: none;">
         <div id="profile-picture">
@@ -27,12 +27,22 @@
     </video>
 
     <script>
-        // Remove the click event listener
-        var bgAudio = document.getElementById("video-background"); 
-        document.getElementById("blur-box").style.display = "block";
-        document.getElementById("video-background").style.display = "block";
-        bgAudio.volume = 0.15;
-        bgAudio.play();
+        // Function to trigger click event on the button after 5 seconds
+        setTimeout(function() {
+            document.getElementById("button").click();
+        }, 5000);
+
+        // Click event listener for the button
+        document.getElementById("button").addEventListener("click", function () {
+            var button = this;
+            button.style.animation = "fadeout 1s forwards";
+
+            var bgAudio = document.getElementById("video-background"); 
+            document.getElementById("blur-box").style.display = "block";
+            document.getElementById("video-background").style.display = "block";
+            bgAudio.volume = 0.15;
+            bgAudio.play();
+        });
 
         var byfronPath = window.location.pathname;
         if (byfronPath === '/Murdered') {
