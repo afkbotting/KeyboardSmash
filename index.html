@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Byfron.dance</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <div id="button"><b class="next glowing-text">Click To Continue</b></div>
 
-    <div id="blur-box" style="display: none;">
+    <div id="blur-box" style="opacity: 1;">
         <div id="profile-picture">
             <img src="" alt="Profile Picture" id="profile-pic">
         </div>
@@ -32,12 +43,12 @@
             button.style.animation = "fadeout 1s forwards";
 
             var bgAudio = document.getElementById("video-background"); 
-            document.getElementById("blur-box").style.display = "block";
+            document.getElementById("blur-box").style.animation = "fadeOut 1s forwards";
             document.getElementById("video-background").style.display = "block";
             bgAudio.volume = 0.15;
             bgAudio.play();
         });
-
+        
         var byfronPath = window.location.pathname;
         if (byfronPath === '/Murdered') {
             document.getElementById("username").innerText = "Murdered";
