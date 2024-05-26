@@ -27,7 +27,6 @@
     </video>
 
     <script>
-
         setTimeout(function() {
             document.getElementById("button").click();
         }, 0);
@@ -39,7 +38,7 @@
                 profilePic: "murderedpfp.gif",
                 bio: "I have nitro",
                 discordLink: "https://discord.com/users/1017581502357323837",
-                videoSource: "https://github.com/afkbotting/KeyboardSmash/assets/112919165/e6503c0a-f5b1-496d-b8fc-201e5f99683a",
+                videoSource: "https://github.com/afkbotting/KeyboardSmash/raw/main/assets/112919165/e6503c0a-f5b1-496d-b8fc-201e5f99683a.mp4",
                 title: "Murdered! Byfron.dance"
             },
             '/star': {
@@ -47,7 +46,7 @@
                 profilePic: "starpfp.png",
                 bio: "Undetected forever and always",
                 discordLink: "https://discord.com/users/1211713421704306698",
-                videoSource: "https://github.com/afkbotting/VideoHostingThing/assets/112919165/a4448bb6-726c-41f0-8440-24f53a0801f1",
+                videoSource: "https://github.com/afkbotting/VideoHostingThing/raw/main/assets/112919165/a4448bb6-726c-41f0-8440-24f53a0801f1.mp4",
                 title: "Star! Byfron.dance/star"
             },
             '/polar': {
@@ -55,20 +54,21 @@
                 profilePic: "polarpfp.png",
                 bio: "the one who made this shit",
                 discordLink: "https://discord.com/users/1203761962836828256",
-                videoSource: "https://github.com/afkbotting/VideoHostingThing/assets/112919165/a5616aad-4266-4970-8b54-d0fb88869383",
+                videoSource: "https://github.com/afkbotting/VideoHostingThing/raw/main/assets/112919165/a5616aad-4266-4970-8b54-d0fb88869383.mp4",
                 title: "Polar! Byfron.dance/polar"
             }
         };
     
         if (byfronPath in userData) {
-        var user = userData[byfronPath];
-        document.getElementById("username").innerText = user.username;
-        document.getElementById("profile-pic").querySelector('img').src = user.profilePic;
-        document.getElementById("bio").innerText = user.bio;
-        document.getElementById("discord-link").setAttribute("href", user.discordLink);
-        document.getElementById("video-source").src = user.videoSource;
-        document.title = user.title;
-        document.getElementById("video-background").load();
+            var user = userData[byfronPath];
+            document.getElementById("username").innerText = user.username;
+            document.getElementById("profile-pic").src = user.profilePic;
+            document.getElementById("bio").innerText = user.bio;
+            document.getElementById("discord-link").setAttribute("href", user.discordLink);
+            document.getElementById("video-source").src = user.videoSource;
+            document.title = user.title;
+            document.getElementById("video-background").load();
+        }
     </script>
 </body>
 </html>
