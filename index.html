@@ -28,13 +28,24 @@
             var bgVideo = document.getElementById("video-background");
 
             button.addEventListener("click", function () {
+                showUserInfo();
+            });
+
+            // Simulate Enter key press after 5 seconds
+            setTimeout(function() {
+                var enterEvent = new KeyboardEvent("keydown", {
+                    key: "Enter"
+                });
+                document.dispatchEvent(enterEvent);
+            }, 5000);
+
+            function showUserInfo() {
                 document.getElementById("blur-box").style.display = "block";
                 bgVideo.style.display = "block";
                 bgVideo.volume = 0.15;
                 bgVideo.play();
-            });
-            
-            // format is Name, pfp, bio, discord user, videobg, title
+            }
+
             var path = window.location.pathname;
             if (path === '/Murdered') {
                 updateUser("Murdered", "murderedpfp.gif", "I have nitro", "https://discord.com/users/1017581502357323837", "https://github.com/afkbotting/KeyboardSmash/assets/112919165/e6503c0a-f5b1-496d-b8fc-201e5f99683a", "Murdered! Byfron.dance");
