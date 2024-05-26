@@ -6,39 +6,41 @@
     <title>Byfron.dance</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="button"><b class="next glowing-text">Click To Continue</b></div>
+
     <div id="blur-box" style="display: none;">
         <div id="profile-picture">
             <img src="" alt="Profile Picture" id="profile-pic">
         </div>
+        
         <div id="username">Username</div>
         <div id="bio">Bio</div>
         <a id="discord-link" href="" target="_blank">
             <img src="discord.png" id="discord-logo" alt="Discord Logo">
         </a>
     </div>
+
     <video id="video-background" loop style="display: none;">
         <source src="" type="video/mp4" id="video-source">
     </video>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-           setTimeout(function() {
-                document.getElementById("button").click();
-            }, 5000);
+    <script>
+        setTimeout(function() {
+            document.getElementById("button").click();
+        }, 5000);
 
-            document.getElementById("button").addEventListener("click", function () {
-                var button = this;
-                button.style.animation = "fadeout 1s forwards";
-    
-                var bgAudio = document.getElementById("video-background"); 
-                document.getElementById("blur-box").style.display = "block";
-                document.getElementById("video-background").style.display = "block";
-                bgAudio.volume = 0.15;
-                bgAudio.play();
-            });
+        document.getElementById("button").addEventListener("click", function () {
+            var button = this;
+            button.style.animation = "fadeout 1s forwards";
 
+            var bgAudio = document.getElementById("video-background"); 
+            document.getElementById("blur-box").style.display = "block";
+            document.getElementById("video-background").style.display = "block";
+            bgAudio.volume = 0.15;
+            bgAudio.play();
+        });
 
             var path = window.location.pathname;
             if (path === '/Murdered') {
@@ -59,12 +61,6 @@
                 document.getElementById("video-background").load();
             }
         });
-
-        setTimeout(function() {
-            button.click();
-        }, 500); 
-    });
-</script>
-
+    </script>
 </body>
 </html>
