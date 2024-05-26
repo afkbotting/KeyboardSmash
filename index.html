@@ -57,7 +57,7 @@
     if (byfronPath in userData) {
         var user = userData[byfronPath];
         document.getElementById("username").innerText = user.username;
-        document.getElementById("profile-pic").innerHTML = '<img src="' + user.profilePic + '" alt="Profile Picture">';
+        document.getElementById("profile-pic").querySelector('img').src = user.profilePic; // Set profile picture src
         document.getElementById("bio").innerText = user.bio;
         document.getElementById("discord-link").setAttribute("href", user.discordLink);
         document.getElementById("video-source").src = user.videoSource;
@@ -73,6 +73,6 @@
         // Play video
         document.getElementById("video-background").play();
     }
-    </script>
+</script>
 </body>
 </html>
