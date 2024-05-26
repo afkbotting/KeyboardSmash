@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Murdered! Byfron.dance</title>
+    <title>Byfron.dance</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,18 +12,18 @@
 
     <div id="blur-box" style="display: none;">
         <div id="profile-picture">
-            <img src="murderedpfp.gif" alt="Profile Picture">
+            <img src="" alt="Profile Picture" id="profile-pic">
         </div>
         
-        <div id="username">Murdered</div>
-        <div id="bio">I have nitro</div>
-        <a id="discord-link" href="https://discord.com/users/1017581502357323837" target="_blank">
+        <div id="username">Username</div>
+        <div id="bio">Bio</div>
+        <a id="discord-link" href="" target="_blank">
             <img src="discord.png" id="discord-logo" alt="Discord Logo">
         </a>
     </div>
 
     <video id="video-background" loop style="display: none;">
-        <source src="https://github.com/afkbotting/KeyboardSmash/assets/112919165/e6503c0a-f5b1-496d-b8fc-201e5f99683a" type="video/mp4">
+        <source src="" type="video/mp4" id="video-source">
     </video>
 
     <script>
@@ -39,16 +39,22 @@
         });
 
         var byfronPath = window.location.pathname;
-        if (byfronPath === '/star') {
+        if (byfronPath === '/Murdered') {
+            document.getElementById("username").innerText = "Murdered";
+            document.getElementById("profile-picture").innerHTML = '<img src="murderedpfp.gif" alt="Profile Picture">';
+            document.getElementById("bio").innerText = "I have nitro";
+            document.getElementById("discord-link").setAttribute("href", "https://discord.com/users/1017581502357323837");
+            document.getElementById("video-source").src = "https://github.com/afkbotting/KeyboardSmash/assets/112919165/e6503c0a-f5b1-496d-b8fc-201e5f99683a";
+            document.title = "Murdered! Byfron.dance";
+        } else if (byfronPath === '/star') {
             document.getElementById("username").innerText = "star1";
             document.getElementById("profile-picture").innerHTML = '<img src="starpfp.png" alt="Profile Picture">';
             document.getElementById("bio").innerText = "Undetected forever and always";
             document.getElementById("discord-link").setAttribute("href", "https://discord.com/users/1211713421704306698");
-            var videoSource = document.getElementById("video-background").querySelector("source");
-            videoSource.src = "https://github.com/afkbotting/VideoHostingThing/assets/112919165/a4448bb6-726c-41f0-8440-24f53a0801f1";
-            videoSource.parentElement.load();
+            document.getElementById("video-source").src = "https://github.com/afkbotting/VideoHostingThing/assets/112919165/a4448bb6-726c-41f0-8440-24f53a0801f1";
             document.title = "Star! Byfron.dance/star";
         }
+        document.getElementById("video-background").load();
     </script>
 </body>
 </html>
