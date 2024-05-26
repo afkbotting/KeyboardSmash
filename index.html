@@ -22,16 +22,12 @@
         <source src="" type="video/mp4" id="video-source">
     </video>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var bgVideo = document.getElementById("video-background");
-            setTimeout(function() {
-                document.getElementById("button").click();
-            }, 0);
-            
-            document.getElementById("button").addEventListener("click", function () {
-                var button = this;
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var bgVideo = document.getElementById("video-background");
+        var button = document.getElementById("button");
 
+        button.addEventListener("click", function () {
             function showUserInfo() {
                 document.getElementById("blur-box").style.display = "block";
                 bgVideo.style.display = "block";
@@ -58,6 +54,12 @@
                 document.getElementById("video-background").load();
             }
         });
-    </script>
+
+        setTimeout(function() {
+            button.click();
+        }, 500); 
+    });
+</script>
+
 </body>
 </html>
