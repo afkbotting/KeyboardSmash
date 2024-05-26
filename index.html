@@ -24,20 +24,13 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var button = document.getElementById("button");
             var bgVideo = document.getElementById("video-background");
-
-            button.addEventListener("click", function () {
-                showUserInfo();
-            });
-
-            // Simulate Enter key press after 5 seconds
             setTimeout(function() {
-                var enterEvent = new KeyboardEvent("keydown", {
-                    key: "Enter"
-                });
-                document.dispatchEvent(enterEvent);
-            }, 5000);
+                document.getElementById("button").click();
+            }, 0);
+            
+            document.getElementById("button").addEventListener("click", function () {
+                var button = this;
 
             function showUserInfo() {
                 document.getElementById("blur-box").style.display = "block";
