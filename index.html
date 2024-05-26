@@ -5,31 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Byfron.dance</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* CSS for animated background */
-        body {
-            overflow: hidden; /* Prevent scrolling */
-            background: black; /* Default black background */
-            position: relative;
-        }
-
-        #animated-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: url('animated-background.gif') repeat;
-            animation: animatedBackground 10s linear infinite;
-        }
-
-        @keyframes animatedBackground {
-            from { background-position: 0 0; }
-            to { background-position: 100% 100%; }
-        }
-    </style>
 </head>
+
 <body>
     <div id="button"><b class="next glowing-text">Click To Continue</b></div>
 
@@ -45,7 +22,9 @@
         </a>
     </div>
 
-    <div id="animated-background"></div>
+    <video id="video-background" loop>
+        <source src="" type="video/mp4" id="video-source">
+    </video>
 
     <script>
         setTimeout(function() {
