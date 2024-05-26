@@ -4,27 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Murdered! Byfron.dance</title>
-    <style>
-        <link rel="stylesheet" href="style.css">
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div id="button"><b class="next glowing-text">Click To Continue</b></div>
 
-    <div id="blur-box">
+    <div id="blur-box" style="display: none;">
         <div id="profile-picture">
             <img src="murderedpfp.gif" alt="Profile Picture">
         </div>
         
         <div id="username">Murdered</div>
         <div id="bio">I have nitro</div>
-        <a id="discord-link" href="https://discord.com/users/1017581502357323837">
+        <a id="discord-link" href="https://discord.com/users/1017581502357323837" target="_blank">
             <img src="discord.png" id="discord-logo" alt="Discord Logo">
         </a>
     </div>
 
-    <video id="video-background" loop>
+    <video id="video-background" loop style="display: none;">
         <source src="https://github.com/afkbotting/KeyboardSmash/assets/112919165/e6503c0a-f5b1-496d-b8fc-201e5f99683a" type="video/mp4">
     </video>
 
@@ -40,18 +38,15 @@
             bgAudio.play();
         });
 
-        document.getElementById("discord-link").addEventListener("click", function(event) {
-            event.preventDefault();
-            window.open(this.getAttribute("href"), "_blank");
-        });
-
         var byfronPath = window.location.pathname;
         if (byfronPath === '/star') {
             document.getElementById("username").innerText = "star1";
             document.getElementById("profile-picture").innerHTML = '<img src="starpfp.png" alt="Profile Picture">';
             document.getElementById("bio").innerText = "Undetected forever and always";
             document.getElementById("discord-link").setAttribute("href", "https://discord.com/users/1211713421704306698");
-            document.getElementById("video-background").querySelector("source").src = "https://github.com/afkbotting/VideoHostingThing/assets/112919165/a4448bb6-726c-41f0-8440-24f53a0801f1";
+            var videoSource = document.getElementById("video-background").querySelector("source");
+            videoSource.src = "https://github.com/afkbotting/VideoHostingThing/assets/112919165/a4448bb6-726c-41f0-8440-24f53a0801f1";
+            videoSource.parentElement.load();
             document.title = "Star! Byfron.dance/star";
         }
     </script>
