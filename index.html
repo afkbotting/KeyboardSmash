@@ -32,33 +32,42 @@
             document.getElementById("button").click();
         }, 0);
 
-        document.getElementById("button").addEventListener("click", function () {
-            var button = this;
-            button.style.animation = "fadeout 1s forwards";
-
-            var bgAudio = document.getElementById("video-background"); 
-            document.getElementById("blur-box").style.display = "block";
-            document.getElementById("video-background").style.display = "block";
-            bgAudio.volume = 0.15;
-            bgAudio.play();
-        });
-
         var byfronPath = window.location.pathname;
-        if (byfronPath === '/Murdered') {
-            document.getElementById("username").innerText = "Murdered";
-            document.getElementById("profile-picture").innerHTML = '<img src="murderedpfp.gif" alt="Profile Picture">';
-            document.getElementById("bio").innerText = "I have nitro";
-            document.getElementById("discord-link").setAttribute("href", "https://discord.com/users/1017581502357323837");
-            document.getElementById("video-source").src = "https://github.com/afkbotting/KeyboardSmash/assets/112919165/e6503c0a-f5b1-496d-b8fc-201e5f99683a";
-            document.title = "Murdered! Byfron.dance";
-        } else if (byfronPath === '/star') {
-            document.getElementById("username").innerText = "star1";
-            document.getElementById("profile-picture").innerHTML = '<img src="starpfp.png" alt="Profile Picture">';
-            document.getElementById("bio").innerText = "Undetected forever and always";
-            document.getElementById("discord-link").setAttribute("href", "https://discord.com/users/1211713421704306698");
-            document.getElementById("video-source").src = "https://github.com/afkbotting/VideoHostingThing/assets/112919165/a4448bb6-726c-41f0-8440-24f53a0801f1";
-            document.title = "Star! Byfron.dance/star";
-        }
+        var userData = {
+            '/Murdered': {
+                username: "Murdered",
+                profilePic: "murderedpfp.gif",
+                bio: "I have nitro",
+                discordLink: "https://discord.com/users/1017581502357323837",
+                videoSource: "https://github.com/afkbotting/KeyboardSmash/assets/112919165/e6503c0a-f5b1-496d-b8fc-201e5f99683a",
+                title: "Murdered! Byfron.dance"
+            },
+            '/star': {
+                username: "star1",
+                profilePic: "starpfp.png",
+                bio: "Undetected forever and always",
+                discordLink: "https://discord.com/users/1211713421704306698",
+                videoSource: "https://github.com/afkbotting/VideoHostingThing/assets/112919165/a4448bb6-726c-41f0-8440-24f53a0801f1",
+                title: "Star! Byfron.dance/star"
+            },
+            '/polar': {
+                username: "Polar",
+                profilePic: "polarpfp.png",
+                bio: "the one who made this shit",
+                discordLink: "https://discord.com/users/1203761962836828256",
+                videoSource: "https://github.com/afkbotting/VideoHostingThing/assets/112919165/a5616aad-4266-4970-8b54-d0fb88869383",
+                title: "Polar! Byfron.dance/polar"
+            }
+        };
+    
+        if (byfronPath in userData) {
+        var user = userData[byfronPath];
+        document.getElementById("username").innerText = user.username;
+        document.getElementById("profile-pic").querySelector('img').src = user.profilePic;
+        document.getElementById("bio").innerText = user.bio;
+        document.getElementById("discord-link").setAttribute("href", user.discordLink);
+        document.getElementById("video-source").src = user.videoSource;
+        document.title = user.title;
         document.getElementById("video-background").load();
     </script>
 </body>
