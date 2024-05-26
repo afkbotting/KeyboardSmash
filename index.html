@@ -157,13 +157,14 @@
             event.preventDefault();
             window.open(this.getAttribute("href"), "_blank");
         });
+
         var byfronPath = window.location.pathname;
         if (byfronPath === '/star') {
             document.getElementById("username").innerText = "star1";
             document.getElementById("profile-picture").innerHTML = '<img src="starpfp.png" alt="Profile Picture">';
             document.getElementById("bio").innerText = "Undetected forever and always";
             document.getElementById("discord-link").setAttribute("href", "https://discord.com/users/1211713421704306698");
-            document.GetElementById("Video-background").setAttribute("href", "https://github.com/afkbotting/VideoHostingThing/assets/112919165/a4448bb6-726c-41f0-8440-24f53a0801f1");
+            document.getElementById("video-background").querySelector("source").src = "https://github.com/afkbotting/VideoHostingThing/assets/112919165/a4448bb6-726c-41f0-8440-24f53a0801f1";
             document.title = "Star! Byfron.dance/star";
         }
     </script>
