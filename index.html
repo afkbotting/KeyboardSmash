@@ -123,8 +123,6 @@
 </head>
 
 <body>
-    <div id="button"><b class="next glowing-text">Click To Continue</b></div>
-
     <div id="blur-box">
         <div id="profile-picture">
             <img src="profile.gif" alt="Profile Picture">
@@ -137,34 +135,34 @@
         </a>
     </div>
 
-    <video id="video-background" loop>
-        <source src="https://private-user-images.githubusercontent.com/112919165/334172477-53ebf89b-f6b5-4030-b70a-7d424a0960fe.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTY4MzA5NDYsIm5iZiI6MTcxNjgzMDY0NiwicGF0aCI6Ii8xMTI5MTkxNjUvMzM0MTcyNDc3LTUzZWJmODliLWY2YjUtNDAzMC1iNzBhLTdkNDI0YTA5NjBmZS5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNTI3JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDUyN1QxNzI0MDZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mNmQ0MTIwMDU4OGY3ZmZkMzI1ZTM4MWE1MzVjMGFiYTk2ZmIwMWM4NGZhYzgwMWIzYTE0NTQwZTU5NzVjZWExJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.697ErEUtiPEfiOI7RAftGVKAwk-fme08eFHzNImZioU3a" type="video/mp4">
+    <video id="video-background" loop autoplay>
+        <source src="https://private-user-images.githubusercontent.com/112919165/334172477-53ebf89b-f6b5-4030-b70a-7d424a0960fe.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTY4MzEwNTksIm5iZiI6MTcxNjgzMDc1OSwicGF0aCI6Ii8xMTI5MTkxNjUvMzM0MTcyNDc3LTUzZWJmODliLWY2YjUtNDAzMC1iNzBhLTdkNDI0YTA5NjBmZS5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNTI3JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDUyN1QxNzI1NTlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jYThmMjU3YThjNGMxZjE3Y2U4NjgzY2QzZjQwMzUzYjU0ZGNkMmIyNmYxZTQ5NzU4ZTliNjI5OTQxMzk2MWIzJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.lP3uBMhmyNXunExbsBj2yrEqSze-sKEnJF6W7dHk_D0" type="video/mp4">
+        <!-- Provide additional video sources here -->
     </video>
 
     <script>
-        document.getElementById("button").addEventListener("click", function () {
-            var button = this;
-            button.style.animation = "fadeout 1s forwards";
-
+        document.addEventListener("DOMContentLoaded", function() {
             var bgAudio = document.getElementById("video-background"); 
-            document.getElementById("blur-box").style.display = "block";
-            document.getElementById("video-background").style.display = "block";
+            var blurBox = document.getElementById("blur-box");
             bgAudio.volume = 0.15;
-            bgAudio.play();
-        });
+            blurBox.style.display = "block";
+            document.getElementById("video-background").style.display = "block";
+            blurBox.style.animation = "fadein 1s forwards";
+            
+            document.getElementById("discord-link").addEventListener("click", function(event) {
+                event.preventDefault();
+                window.open(this.getAttribute("href"), "_blank");
+            });
 
-        document.getElementById("discord-link").addEventListener("click", function(event) {
-            event.preventDefault();
-            window.open(this.getAttribute("href"), "_blank");
+            var byfronPath = window.location.pathname;
+            if (byfronPath === '/star') {
+                document.getElementById("username").innerText = "star1";
+                document.getElementById("profile-picture").innerHTML = '<img src="profile2.png" alt="Profile Picture">';
+                document.getElementById("bio").innerText = "Undetected forever and always";
+                document.getElementById("discord-link").setAttribute("href", "https://discord.com/users/1211713421704306698");
+                document.title = "Star! Byfron.dance/star";
+            }
         });
-        var byfronPath = window.location.pathname;
-        if (byfronPath === '/star') {
-            document.getElementById("username").innerText = "star1";
-            document.getElementById("profile-picture").innerHTML = '<img src="profile2.png" alt="Profile Picture">';
-            document.getElementById("bio").innerText = "Undetected forever and always";
-            document.getElementById("discord-link").setAttribute("href", "https://discord.com/users/1211713421704306698");
-            document.title = "Star! Byfron.dance/star";
-        }
     </script>
 </body>
 </html>
