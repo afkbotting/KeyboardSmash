@@ -123,8 +123,6 @@
 </head>
 
 <body>
-    <div id="button"><b class="next glowing-text">Click To Continue</b></div>
-
     <div id="blur-box">
         <div id="profile-picture">
             <img src="profile.gif" alt="Profile Picture">
@@ -142,29 +140,29 @@
     </video>
 
     <script>
-        document.getElementById("button").addEventListener("click", function () {
-            var button = this;
-            button.style.animation = "fadeout 1s forwards";
-
+        document.addEventListener("DOMContentLoaded", function() {
             var bgAudio = document.getElementById("video-background"); 
-            document.getElementById("blur-box").style.display = "block";
-            document.getElementById("video-background").style.display = "block";
+            var blurBox = document.getElementById("blur-box");
             bgAudio.volume = 0.15;
             bgAudio.play();
-        });
+            blurBox.style.display = "block";
+            document.getElementById("video-background").style.display = "block";
+            blurBox.style.animation = "fadein 1s forwards";
+            
+            document.getElementById("discord-link").addEventListener("click", function(event) {
+                event.preventDefault();
+                window.open(this.getAttribute("href"), "_blank");
+            });
 
-        document.getElementById("discord-link").addEventListener("click", function(event) {
-            event.preventDefault();
-            window.open(this.getAttribute("href"), "_blank");
+            var byfronPath = window.location.pathname;
+            if (byfronPath === '/star') {
+                document.getElementById("username").innerText = "star1";
+                document.getElementById("profile-picture").innerHTML = '<img src="profile2.png" alt="Profile Picture">';
+                document.getElementById("bio").innerText = "Undetected forever and always";
+                document.getElementById("discord-link").setAttribute("href", "https://discord.com/users/1211713421704306698");
+                document.title = "Star! Byfron.dance/star";
+            }
         });
-        var byfronPath = window.location.pathname;
-        if (byfronPath === '/star') {
-            document.getElementById("username").innerText = "star1";
-            document.getElementById("profile-picture").innerHTML = '<img src="profile2.png" alt="Profile Picture">';
-            document.getElementById("bio").innerText = "Undetected forever and always";
-            document.getElementById("discord-link").setAttribute("href", "https://discord.com/users/1211713421704306698");
-            document.title = "Star! Byfron.dance/star";
-        }
     </script>
 </body>
 </html>
