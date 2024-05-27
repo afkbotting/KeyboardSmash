@@ -123,31 +123,40 @@
 </head>
 
 <body>
-    
-    <div id="username">Murdered</div>
-    <div id="bio">I have nitro</div>
-    <a id="discord-link" href="https://discord.com/users/1017581502357323837">
-        <img src="discord.png" id="discord-logo" alt="Discord Logo">
-    </a>
+    <div id="button"><b class="next glowing-text">Click To Continue</b></div>
+
+    <div id="blur-box">
+        <div id="profile-picture">
+            <img src="profile.gif" alt="Profile Picture">
+        </div>
+        
+        <div id="username">Murdered</div>
+        <div id="bio">I have nitro</div>
+        <a id="discord-link" href="https://discord.com/users/1017581502357323837">
+            <img src="discord.png" id="discord-logo" alt="Discord Logo">
+        </a>
+    </div>
 
     <video id="video-background" loop>
-        <source src="https://github.com/afkbotting/KeyboardSmash/raw/master/assets/112919165/e6503c0a-f5b1-496d-b8fc-201e5f99683a.mp4" type="video/mp4">
+        <source src="https://github.com/afkbotting/KeyboardSmash/assets/112919165/e6503c0a-f5b1-496d-b8fc-201e5f99683a" type="video/mp4">
     </video>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("button").addEventListener("click", function () {
+            var button = this;
+            button.style.animation = "fadeout 1s forwards";
+
             var bgAudio = document.getElementById("video-background"); 
-            var blurBox = document.getElementById("blur-box");
+            document.getElementById("blur-box").style.display = "block";
+            document.getElementById("video-background").style.display = "block";
             bgAudio.volume = 0.15;
             bgAudio.play();
-            blurBox.style.animation = "fadein 1s forwards";
         });
 
         document.getElementById("discord-link").addEventListener("click", function(event) {
             event.preventDefault();
             window.open(this.getAttribute("href"), "_blank");
         });
-        
         var byfronPath = window.location.pathname;
         if (byfronPath === '/star') {
             document.getElementById("username").innerText = "star1";
