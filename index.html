@@ -141,12 +141,12 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var bgAudio = document.getElementById("video-background"); 
             var blurBox = document.getElementById("blur-box");
+            var bgAudio = document.getElementById("video-background"); 
+            document.getElementById("blur-box").style.display = "block";
+            document.getElementById("video-background").style.display = "block";
             bgAudio.volume = 0.15;
             bgAudio.play();
-            blurBox.style.animation = "fadein 1s forwards";
-            blurBox.style.display = "block";
             document.getElementById("video-background").style.display = "block";
             document.getElementById("discord-link").addEventListener("click", function(event) {
                 event.preventDefault();
